@@ -7,12 +7,12 @@ async def main():
     await client.connect()
 
     # Switch to dispatch mode and start
-    await client.set(ctrl_ems_mode_n, 3)
-    await client.set(ctrl_on_off_command_n, 1)
-    await client.set(ctrl_dispatch_timeout_n, 120)
+    #await client.set(ctrl_ems_mode_n, 3)
+    #await client.set(ctrl_on_off_command_n, 1)
+    #await client.set(ctrl_dispatch_timeout_n, 120)
 
     # Set discharge at 10 kW (positive = discharge)
-    await client.set(ctrl_active_power_setpoint_n, 10)
+    #await client.set(ctrl_active_power_setpoint_n, 10)
     print("Discharge set to 10 kW")
 
     # Poll every 10 seconds for 60 seconds
