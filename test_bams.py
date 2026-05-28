@@ -16,6 +16,9 @@ registers = [
     bams_min_cell_temp_n,
     bams_cycle_count_n,
     bams_comm_status_n,
+    bams_total_charge_n,
+    bams_total_discharge_n,
+    bams_cycle_count_n
 ]
 
 async def main():
@@ -23,7 +26,7 @@ async def main():
     await client.connect()
 
     for name in registers:
-        result = await client.get(name, n=2)
+        result = await client.get(name)
         if result:
             print(f"{result.name}: {result.value} {result.modbus_unit.value}")
         else:
