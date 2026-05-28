@@ -11,7 +11,7 @@ from pyalpha.utils import (
     convert_to_i16, convert_to_i32, split_i32_to_registers
 )
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 class AsyncAlphaClient:
