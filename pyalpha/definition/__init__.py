@@ -114,4 +114,20 @@ modbus_map = {
     pv_meter_comm_status_n: pv_meter_comm_status,
     pv_meter_ct_ratio_n: pv_meter_ct_ratio,
     pv_meter_pt_ratio_n: pv_meter_pt_ratio,
+
+    # PV Inverter (n=1)
+    pv_inverter_active_regulator_n: pv_inverter_active_regulator,
+    pv_inverter_a_voltage_n: pv_inverter_a_voltage,
+    pv_inverter_b_voltage_n: pv_inverter_b_voltage,
+    pv_inverter_c_voltage_n: pv_inverter_c_voltage,
+    pv_inverter_frequency_n: pv_inverter_frequency,
+    pv_inverter_daily_energy_n: pv_inverter_daily_energy,
+    pv_inverter_active_power_n: pv_inverter_active_power,
+    pv_inverter_work_mode_n: pv_inverter_work_mode,
+    pv_inverter_temperature_n: pv_inverter_temperature,
+    pv_inverter_total_energy_n: pv_inverter_total_energy,
+    pv_inverter_fault1_n: pv_inverter_fault1,
+    pv_inverter_fault2_n: pv_inverter_fault2,
+    pv_inverter_comm_status_n: pv_inverter_comm_status,
+    pv_inverter_real_comm_status_n: pv_inverter_real_comm_status,
 }
