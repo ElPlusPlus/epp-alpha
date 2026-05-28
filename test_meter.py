@@ -7,14 +7,17 @@ registers = [
     grid_meter_total_active_power_n,
     grid_meter_total_reactive_power_n,
     grid_meter_total_apparent_power_n,
+    grid_meter_comm_status_n,
     dg_meter_frequency_n,
     dg_meter_total_active_power_n,
     dg_meter_total_reactive_power_n,
     dg_meter_total_apparent_power_n,
+    dg_meter_comm_status_n,
     pv_meter_frequency_n,
     pv_meter_total_active_power_n,
     pv_meter_total_reactive_power_n,
     pv_meter_total_apparent_power_n,
+    pv_meter_comm_status_n,
 ]
 
 async def main():
