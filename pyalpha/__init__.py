@@ -14,6 +14,19 @@ from pyalpha.utils import (
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
+# Stride offsets for multi-device registers
+_PCS_BAMS_STRIDE = 2400
+_PV_INVERTER_STRIDE = 40
+
+def _get_offset(register_address: int, n: int) -> int:
+    if n == 1:
+        return 0
+    if 5100 <= register_address <= 5769:
+        return (n - 1) * _PCS_BAMS_STRIDE
+    if 1300 <= register_address < 2580:
+        return (n - 1) * _PV_INVERTER_STRIDE
+    return 0
+
 class AsyncAlphaClient:
     def __init__(self, host='192.168.1.6', port=502, unit_id=1, serial_port=None):
         """Initialize the Async Alpha Modbus client"""
@@ -110,15 +123,16 @@ class AsyncAlphaClient:
             if not bool_connected:
                 raise Exception("TCP not connected when ensuring connection")
 
-    async def get(self, register_name: str) -> Optional[Result]:
+    async def get(self, register_name: str, n: int = 1) -> Optional[Result]:
         """Get a register value by name using utility functions"""
         try:
             register_value = modbus_map[register_name]
+            address = register_value.register + _get_offset(register_value.register, n)
             attempt = 0
             while True:
                 try:
                     await self._ensure_connection()
-                    result = await self.read_register(register_value.register, register_value.count, register_value.function_code)
+                    result = await self.read_register(address, register_value.count, register_value.function_code)
                     if result is None:
                         raise Exception(f"Failed to read register {register_name}")
                     break
@@ -170,7 +184,7 @@ class AsyncAlphaClient:
                 name=register_name,
                 value=converted_value,
                 modbus_type=register_value.modbus_type,
-                register=register_value.register,
+                register=address,
                 count=register_value.count,
                 function_code=register_value.function_code,
                 modbus_unit=register_value.modbus_unit
@@ -264,10 +278,11 @@ class AsyncAlphaClient:
             logger.error(f"Error configuring charging parameters: {str(e)}")
             return False
 
-    async def set(self, register_name: str, value: Union[int, float, str]) -> bool:
+    async def set(self, register_name: str, value: Union[int, float, str], n: int = 1) -> bool:
         """Set a register value by name using utility functions"""
         try:
             register_info = modbus_map[register_name]
+            address = register_info.register + _get_offset(register_info.register, n)
             
             if register_info.access == ModbusAccess.RO:
                 logger.error(f"Register {register_name} is read-only")
@@ -346,9 +361,9 @@ class AsyncAlphaClient:
                     await self._ensure_connection()
                     # Write registers based on count
                     if len(registers_to_write) == 1:
-                        return await self.write_register(register_info.register, registers_to_write[0])
+                        return await self.write_register(address, registers_to_write[0])
                     else:
-                        return await self.write_register(register_info.register, registers_to_write)
+                        return await self.write_register(address, registers_to_write)
                 except Exception as e:
                     logger.error(f"Failed to read register {register_name}: {e}")
                     attempt += 1

@@ -23,7 +23,7 @@ async def main():
     await client.connect()
 
     for name in registers:
-        result = await client.get(name)
+        result = await client.get(name, n=2)
         if result:
             print(f"{result.name}: {result.value} {result.modbus_unit.value}")
         else:
