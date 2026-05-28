@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger()
 
 class AsyncAlphaClient:
-    def __init__(self, host='192.168.1.6', port=502, unit_id=0xFF, serial_port=None):
+    def __init__(self, host='192.168.1.6', port=502, unit_id=1, serial_port=None):
         """Initialize the Async Alpha Modbus client"""
         self.host = host
         self.port = port
