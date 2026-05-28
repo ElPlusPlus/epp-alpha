@@ -17,11 +17,15 @@ async def main():
 
     # Poll every 10 seconds for 60 seconds
     poll_registers = [
+        work_mode_n,
+        work_status_n,
         system_mode_n,
         ctrl_ems_mode_n,
         ctrl_on_off_command_n,
         ctrl_dispatch_timeout_n,
         ctrl_active_power_setpoint_n,
+        system_chargeable_power_n,
+        system_dischargeable_power_n,
         system_soc_n,
         system_active_power_n,
         total_battery_power_n,
@@ -32,6 +36,8 @@ async def main():
         total_load_power_n,
         bams_total_voltage_n,
         bams_total_current_n,
+        bams_undervoltage_charge_flag_n,
+        bams_soc_calibration_flag_n,
     ]
 
     for i in range(6):
