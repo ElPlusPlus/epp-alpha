@@ -1,0 +1,55 @@
+Device,寄存器地址需+(n-1)*2400（十进制）,测点名称,Register name,Data type,Unit,Note,
+"STS[n]
+第n号从机的STS
+( n∈[1,25] )",5620,AB线电压(电网侧),Line voltage between A to B(Grid),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5621,BC线电压(电网侧),Line voltage between B to C(Grid),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5622,CA线电压(电网侧),Line voltage between C to A(Grid),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5623,频率(电网侧),Frequency(Grid),uint16,0.01Hz,40.00~70.00,5.0不支持    5.0 Not Supported
+,5624,A相有功功率(电网侧),A active power(Grid),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5625,B相有功功率(电网侧),B active power(Grid),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5626,C相有功功率(电网侧),C active power(Grid),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5627,A相视在功率(电网侧),A apparent power(Grid),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5628,B相视在功率(电网侧),B apparent power(Grid),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5629,C相视在功率(电网侧),C apparent power(Grid),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5630,总有功功率(电网侧),Total active power(Grid),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5631,总无功功率(电网侧),Total reactive power(Grid),int16,0.1kVar,,5.0不支持    5.0 Not Supported
+,5632,总视在功功率(电网侧),Total apparent power(Grid),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5633,总功率因数(电网侧),Total PF (Grid),int16,0.01PF,-1.00~1.00,5.0不支持    5.0 Not Supported
+,5634,AB线电压(负载侧),Line voltage between A to B(Load),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5635,BC线电压(负载侧),Line voltage between B to C(Load),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5636,CA线电压(负载侧),Line voltage between C to A(Load),uint16,0.1V,0~600.0,5.0不支持    5.0 Not Supported
+,5637,A相电流(负载侧),A current(Load),int16,0.1A,‐1500.0~1500.0,5.0不支持    5.0 Not Supported
+,5638,B相电流(负载侧),B current(Load),int16,0.1A,‐1500.0~1500.0,5.0不支持    5.0 Not Supported
+,5639,C相电流(负载侧),C current(Load),int16,0.1A,‐1500.0~1500.0,5.0不支持    5.0 Not Supported
+,5640,频率(负载侧),Frequency(Load),uint16,0.01Hz,40.00~70.00,5.0不支持    5.0 Not Supported
+,5641,A相有功功率(负载侧),A active power(Load),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5642,B相有功功率(负载侧),B active power(Load),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5643,C相有功功率(负载侧),C active power(Load),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5644,A相无功功率(负载侧),A reactive power(Load),int16,0.1kVar,,5.0不支持    5.0 Not Supported
+,5645,B相无功功率(负载侧),B reactive power(Load),int16,0.1kVar,,5.0不支持    5.0 Not Supported
+,5646,C相无功功率(负载侧),C reactive power(Load),int16,0.1kVar,,5.0不支持    5.0 Not Supported
+,5647,A相视在功率(负载侧),A apparent power(Load),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5648,B相视在功率(负载侧),B apparent power(Load),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5649,C相视在功率(负载侧),C apparent power(Load),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5650,总有功功率(负载侧),Total active power(Load),int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5651,总无功功率(负载侧),Total reactive power(Load),int16,0.1kVar,,5.0不支持    5.0 Not Supported
+,5652,总视在功功率(负载侧),Total apparent power(Load),int16,0.1kVA,,5.0不支持    5.0 Not Supported
+,5653,总功率因数(负载侧),Total PF (Load),int16,0.01PF,-1.00~1.00,5.0不支持    5.0 Not Supported
+,5654,STS通讯超时时间 ,STS_CommTimeout,uint16,1s,"0: Not limited
+t：t （s）",5.0不支持    5.0 Not Supported
+,5655,并离网状态,Grid interconnection mode,int16,,"0:  Grid-tied
+1:  Off-grid",5.0不支持    5.0 Not Supported
+,5656,工作状态,work state,int16,,"1:normal
+2:warning
+3:fault",5.0不支持    5.0 Not Supported
+,5657,模块温度,Module temperature,int16,0.1℃ ,40.0~120.0,5.0不支持    5.0 Not Supported
+,5658,STS故障信息1,STS fault message 1,uint32,,,5.0不支持    5.0 Not Supported
+,5659,,,,,,5.0不支持    5.0 Not Supported
+,5660,STS故障信息2,STS fault message 2,uint32,,,5.0不支持    5.0 Not Supported
+,5661,,,,,,5.0不支持    5.0 Not Supported
+,5662,STS故障信息3,STS fault message 3,uint32,,,5.0不支持    5.0 Not Supported
+,5663,,,,,,5.0不支持    5.0 Not Supported
+,5664,STS故障信息4,STS fault message 4,uint32,,,5.0不支持    5.0 Not Supported
+,5665,,,,,,5.0不支持    5.0 Not Supported
+,5666,通讯状态,communication status,int16,,1:normal 0:lost,5.0不支持    5.0 Not Supported
+,5667~5689,预留,Reserved,,,,5.0不支持    5.0 Not Supported

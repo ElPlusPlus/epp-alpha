@@ -1,0 +1,52 @@
+Device,寄存器地址需+(n-1)*2400（十进制）,测点名称,Register name,Data type,Unit,Note
+"PCS[n]（DCAC）
+第n号从机的PCS
+( n∈[1,25] )",5100,DCAC 启停状态,DCAC start-stop state,uint16,,"0：mode off 
+1：mode on 
+2：standby"
+,5101,DCAC 故障状态,DCAC fault state,uint16,,0：normal 1：fault
+,5102,总功率因数,Total Power Factor,int16,0.01PF,
+,5103,电网频率,Grid Frequency,uint16,0.001Hz,
+,5104,环境温度,Ambient temperature,Int16,0.1℃ ,
+,5105,A相电压,Phase A Voltage,uint16,0.1V,
+,5106,B相电压,Phase B Voltage,uint16,0.1V,
+,5107,C相电压,Phase C Voltage,uint16,0.1V,
+,5108,A相电流,Phase A Current,int16,0.1A,
+,5109,B相电流,Phase B Current,int16,0.1A,
+,5110,C相电流,Phase C Current,int16,0.1A,
+,5111,A相交流有功功率,A active power,int16,0.1kW,
+,5112,B相交流有功功率,B active power,int16,0.1kW,
+,5113,C相交流有功功率,C active power,int16,0.1kW,
+,5114,预留,Reserved,,,
+,5115,电网类型(安规),Grid Type,int16,,
+,5116,工作模式,Work Mode,uint16,,"0:  PQ
+1:  VF
+2：VSG"
+,5117,直流电压,DC Voltage,uint16,0.1V,
+,5118,直流电流,DC Current,int16,0.1A,
+,5119,直流功率,DC Power,int16,0.1kW,
+,5120,有功功率,Active Power,int16,0.1kW,
+,5121,无功功率,Reactive Power,int16,0.1kVar,
+,5122,视在功率,Apparent Power,int16,0.1kVA,
+,5123,交流侧日充电量,Daily Charge,uint16,0.1kWh,
+,5124,交流侧总充电量,Total Charge,uint32,0.1kWh,
+,5125,,,,,
+,5126,交流侧日放电量,Daily Discharge,uint16,0.1kWh,
+,5127,交流侧总放电量,Total Discharge,uint32,0.1kWh,
+,5128,,,,,
+,5129,总直流支路: 直流侧总充电电量,DC String:  Accumulative charged energy,uint32,0.1kWh,
+,5130,,,,,
+,5131,总直流支路: 直流侧总放电电量,DC String:  Accumulative discharged,uint32,0.1kWh,
+,5132,,,,,
+,5133,DCAC故障信息1,DCAC fault message 1,uint32,,
+,5134,,,,,
+,5135,DCAC故障信息2,DCAC fault message 2,uint32,,
+,5136,,,,,
+,5137,DCAC故障信息3,DCAC fault message 3,uint32,,
+,5138,,,,,
+,5139,DCAC故障信息4,DCAC fault message 4,uint32,,
+,5140,,,,,
+,5141,DCAC故障信息5 (天青),DCAC fault message 5,uint32,,
+,5142,,,,,
+,5143,通讯状态,communication status,int16,,1:normal 0:lost
+,5144~5169,预留,Reserved,,,

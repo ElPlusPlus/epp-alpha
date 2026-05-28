@@ -1,0 +1,71 @@
+Device,寄存器地址（十进制）,测点名称,Register name,Data type,Unit,Note,计算方式
+"Host Summary
+（主机汇总）",0,运行模式,Work Mode,uint16,,"0xAA：并网模式（On-grid mode）
+0x55 :   离网模式（Off-grid mode）",计算电网关口电表三相电压全部低于某值（暂定100V）为离网模式，否则为并网模式
+,1,工作状态,Work Status,uint16,,"1:normal
+2:warning
+3:fault",对应PCS开关机，全关对应fault，只要有一台开着就是normal，对应DCAC启停状态（5039数据点）
+,2,储能总额定功率,System Total rated power,int32,0.1kW,添加的设备的储能额定功率的累加,所有PCS额定功率之和，如英博PCS额定功率为100kW
+,3,,,,,,
+,4,储能可充电量,System Chargeable Energy,uint32,0.1kWh,(SOC上限-实际SOC)*储能额定容量 ,上限100%，指“场站从机汇总”数据的可充电量之和，（固定PACK的容量，电池簇数量*LMU数量*PACK的容量）
+,5,,,,,,
+,6,储能可放电量,System Dischargeable Energy,uint32,0.1kWh,(实际SOC-SOC下限)*储能额定容量 ,下限0%，指“场站从机汇总”数据的可放电量之和
+,7,,,,,,
+,8,储能可充电功率,System Chargeable Power,uint32,0.1kW,所有储能设备可充电功率总和,“场站从机汇总”数据的可充电功率之和
+,9,,,,,,
+,10,储能可放电功率,System Dischargeable Power,uint32,0.1kW,所有储能设备可放电功率总和,“场站从机汇总”数据的可放电功率之和
+,11,,,,,,
+,12,最大功率充电可用时间,max power charge available time,uint16,1min,系统可充电量/最⼤充电功率允许值 ,储能可充电量/储能可充电功率
+,13,最大功率放电可用时间,max power discharge available time,uint16,1min,系统可放电量/最⼤放电功率允许值 ,所有电池堆SOC平均值
+,14,储能实际SOC,System SOC,uint16,0.1%,平均值,
+,15,预留,Reserved,,,,
+,16,预留,Reserved,,,,
+,17,预留,Reserved,,,,
+,18,预留,Reserved,,,,
+,19,储能有功功率,System Active Power,int32,0.1kW,储能实时有功功率的累加,统一用DCAC的总有功功率（5020）之和
+,20,,,,,,
+,21,储能无功功率,System Reactive Power,int32,0.1kVar,储能实时无功功率的累加,统一用DCAC的总无功功率（5021）之和
+,22,,,,,,
+,23,储能总充电量,System Total Charge,uint32,10kWh,,电池堆的总充电量（5041）之和
+,24,,,,,,
+,25,储能总放电量,System Total Discharge,uint32,10kWh,,电池堆的总放电量（5043）之和
+,26,,,,,,
+,27,储能日充电量,System Daily Charge,uint32,0.1kWh,,“场站从机汇总”中日充电量之和
+,28,,,,,,
+,29,储能日放电量,System Daily Discharge,uint32,0.1kWh,,“场站从机汇总”中日放电量之和
+,30,,,,,,
+,31,储能可用无功功率,Available reactive power,uint32,0.1kVar,,（储能总额定功率）- 储能无功功率
+,32,,,,,,
+,33,光伏总发电量,Total Power Generation,uint32,10kWh,logger或者电表上送的总发累加,考虑交直流侧（光伏电表5039+DCAC的5053）之和（要乘以光伏并网点电表的CT*PT）
+,34,,,,,,
+,35,光伏日发电量,Daily Power Generation,uint32,0.1kWh,logger或者电表上送的日发累加,光伏总发电量 - 当天00：00的总发电量（从ini文件中获取）
+,36,,,,,,
+,37,光伏装机容量,Photovoltaic installed capacity,uint32,0.1kWh,运行参数光伏额定功率设置值,考虑交直流侧（AC侧光伏装机容量+DC侧光伏装机容量）之和
+,38,,,,,,
+,39,光伏理论有功功率,Theoretical active power of photovoltaics,int32,0.1kW,全部南向光伏设备额定有功累加,考虑交直流规格上限（所有光伏侧（DCDC额定功率+光伏逆变器额定功率）之和）
+,40,,,,,,
+,41,光伏可用有功功率,Photovoltaic available active power,uint32,0.1kW,在线南向光伏设备额定有功累加,不包含储能侧光伏，且针对的是并网机通讯在的机器的额定总和（在线所有光伏设备的额定功率之和）
+,42,,,,,,
+,43,光伏可用无功功率,Photovoltaic available reactive power,uint32,0.1kVar,光伏可用有功功率*0.66,不包含储能侧光伏
+,44,,,,,,
+,45,光伏有功功率,Photovoltaic active power,int32,0.1kW,南向光伏设备实时有功累加,包含交直流侧（光伏电表总有功功率5033+DCAC的光伏发电功率5050）之和
+,46,,,,,,
+,47,光伏无功功率,Photovoltaic reactive power,int32,0.1kVar,南向光伏设备实时无功累加,不包含储能侧（光伏电表总无功功率5035）之和
+,48,,,,,,
+,49,电网侧负载总有功功率,grid side load total power of the meter,int32,0.1kW,有负载电表时取负载电表数据，没有负载电表时EMS计算数据上报,总负载 - BACKUP侧负载总有功功率
+,50,,,,,,
+,51,BACKUP侧负载总有功功率,backup side load total power of the meter,int32,0.1kW,,天青：STS中总有功功率(负载侧)5043点之和；英博固定为0
+,52,,,,,,
+,53,总负载,total load power,int32,0.1kW,,对应SCADA数据5001点
+,54,,,,,,
+,55,总电池功率,total battery power,int32,0.1kW,,电池采样总加（电池堆总功率5045之和）
+,56,,,,,,
+,57,平台类型,platform,uint16,,"1：EMS4.0
+2：EMS5.0",1
+,58,协议版本号,protocol version number,uint16,,,1
+,59,双电源状态,dual power state,uint16,,"0：Disconnected state
+1：Main power side
+2：Backup side",ems_data的5008点（主机，主从ID为0的那个EMS）
+,60,系统工作模式,System mode,uint16,,"0：Local_auto_mode
+3:  Modbus_dp_mode",当前实际工作模式
+,61~99,预留,Reserved,,,,

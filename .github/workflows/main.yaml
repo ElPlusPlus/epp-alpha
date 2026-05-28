@@ -1,0 +1,78 @@
+name: Publish Python Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: prod
+
+    permissions:
+      contents: read
+      id-token: write
+
+    env:
+      AWS_REGION: eu-west-1
+      CODEARTIFACT_DOMAIN: keepaiplatform
+      CODEARTIFACT_REPOSITORY: python
+      AWS_ACCOUNT_ID: "887194769331"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Configure AWS credentials (access keys)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+
+      - name: Configure Poetry (no venv)
+        run: poetry config virtualenvs.create false
+
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      - name: Set version
+        run: |
+          VERSION=$(date +'%Y.%-m%d').$(git rev-list --count HEAD)
+          poetry version $VERSION
+
+      - name: Get CodeArtifact token + repo URL
+        run: |
+          export CODEARTIFACT_AUTH_TOKEN=$(aws codeartifact get-authorization-token \
+            --domain $CODEARTIFACT_DOMAIN \
+            --domain-owner $AWS_ACCOUNT_ID \
+            --query authorizationToken \
+            --output text)
+          
+          export CODEARTIFACT_URL=$(aws codeartifact get-repository-endpoint \
+            --domain $CODEARTIFACT_DOMAIN \
+            --domain-owner $AWS_ACCOUNT_ID \
+            --repository $CODEARTIFACT_REPOSITORY \
+            --format pypi \
+            --query repositoryEndpoint \
+            --output text)
+          
+          poetry config repositories.codeartifact $CODEARTIFACT_URL
+          poetry config http-basic.codeartifact aws $CODEARTIFACT_AUTH_TOKEN
+
+      - name: Build package
+        run: poetry build
+
+      - name: Publish package
+        run: poetry publish -r codeartifact --no-interaction

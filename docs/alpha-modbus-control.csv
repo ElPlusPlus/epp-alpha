@@ -1,0 +1,35 @@
+Device,寄存器地址（十进制）,测点名称,Register name,Data type,Unit,Note,
+"TA
+遥调",4000,有功功率设置,Active power setpoint,int32,0.1kW,"charge：-
+discharge：+
+Note: Due to the limitations of PCS control accuracy, there may be slight deviations in the actual results when the system executes power commands issued by external dispatchers.
+注：由于PCS控制精度的局限性,系统在执行外部调度方下发的功率命令时,实际结果会存在微小偏差。",
+,4001,,,,,,
+,4002,无功功率设置,Reactive power setpoint,int32,0.1kVar,"leading：-
+lagging：+
+Note: Due to the limitations of PCS control accuracy, there may be slight deviations in the actual results when the system executes power commands issued by external dispatchers.
+注：由于PCS控制精度的局限性,系统在执行外部调度方下发的功率命令时,实际结果会存在微小偏差。",
+,4003,,,,,,
+,4004,调度通讯超时设置,dispatch communication time out,uint16,1s,0~1800,
+,4005,调度中断控制方式,dispatch interrupt mode,uint16,/,"0：Maintain the Current Value 保持当前值
+1：Zero Power Output 零功率输出",4.0不支持    4.0 Not Supported
+,4006~4149,预留,Reserved,/,/,/,
+"TC
+遥控",4150,开关机命令,Modle On/Off Command,uint16,/,"0：mode off
+1：mode on","响应时间（单位：秒）
+TB125：90
+G2-H30/H50：开机50，关机25
+H30/H50-G3：开机80，关机25
+Response time (unit: seconds)
+TB125：90
+G2-H30/H50: startup 50, shutdown 25
+H30/H50-G3: startup 80, shutdown 25"
+,4151,清除报错命令,Failure clearance command,uint16,/,"0：false 
+1：true
+Note: This command is used to clear PCS faults, which are only supported by some models, and some faults can only be cleared by shutting down and restarting. The currently supported models are LC-TB100/125-CN and TB187~TB500.
+注：该命令用于清除PCS故障,仅部分机型支持,且有的故障只能通过断电重启清除。目前支持的机型有LC-TB100/125-CN、TB187~TB500。",5.0不支持    5.0 Not Supported
+,4152,系统工作模式,EMS_mode,uint16,/,"0：Local_auto_mode（EMS4.0：本地自动模式；EMS5.0：被动模式）
+2：Local_manual_mode（EMS4.0：本地手动模式；EMS5.0：三方调度模式-本地）
+3:  Modbus_dp_mode（EMS4.0：对外调度模式；EMS5.0：三方调度模式-远程）
+4:  Active_mode（EMS5.0：主动模式）",5.0不支持    5.0 Not Supported
+,4153~4199,预留,Reserved,/,/,/,

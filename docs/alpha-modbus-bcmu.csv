@@ -1,0 +1,42 @@
+Device,寄存器地址需+(n-1)*2400（十进制）,测点名称,Register name,Data type,Unit,Note,
+"BCMU[n][m]
+第n号从机的第m簇数据
+( n∈[1,25] ，m∈[1,20]）",5770+(m-1)*60,电压,Voltage,uint16,0.1 V,,5.0不支持    5.0 Not Supported
+,5771+(m-1)*60,电流,Current,int16,0.1 A,,5.0不支持    5.0 Not Supported
+,5772+(m-1)*60,SOC,SOC,uint16,0.1%,,5.0不支持    5.0 Not Supported
+,5773+(m-1)*60,SOH,SOH,uint16,0.1%,,5.0不支持    5.0 Not Supported
+,5774+(m-1)*60,绝缘阻抗,Insulated resistance,uint16,1kΩ,,5.0不支持    5.0 Not Supported
+,5775+(m-1)*60,最高电芯电压,Maximum Cell Voltage,int16,0.001V,,5.0不支持    5.0 Not Supported
+,5776+(m-1)*60,最高电芯电压PACK位置,Maximum Cell Voltage Position（#PACK）,uint16,,,5.0不支持    5.0 Not Supported
+,5777+(m-1)*60,最高电芯电压CELL位置,Maximum Cell Voltage Position（#CELL）,uint16,,,5.0不支持    5.0 Not Supported
+,5778+(m-1)*60,最低电芯电压,Minimum Cell Voltage,int16,0.001V,,5.0不支持    5.0 Not Supported
+,5779+(m-1)*60,最低电芯电压PACK位置,Minimum Cell Voltage Position（#PACK）,uint16,,,5.0不支持    5.0 Not Supported
+,5780+(m-1)*60,最低电芯电压CELL位置,Minimum Cell Voltage Position（#CELL）,uint16,,,5.0不支持    5.0 Not Supported
+,5781+(m-1)*60,最高电芯温度,Maximum Cell Temperature,int16,0.1℃ ,,5.0不支持    5.0 Not Supported
+,5782+(m-1)*60,最高电芯温度PACK位置,Maximum Cell Temperature Position（#PACK）,uint16,,,5.0不支持    5.0 Not Supported
+,5783+(m-1)*60,最高电芯温度测温点位置,Maximum Cell Temperature Position（#POINT）,uint16,,,5.0不支持    5.0 Not Supported
+,5784+(m-1)*60,最低电芯温度,Minimum Cell Temperature,int16,0.1℃ ,,5.0不支持    5.0 Not Supported
+,5785+(m-1)*60,最低电芯温度PACK位置,Minimum Cell Temperature Position（#PACK）,uint16,,,5.0不支持    5.0 Not Supported
+,5786+(m-1)*60,最低电芯温度测温点位置,Minimum Cell Temperature Position（#POINT）,uint16,,,5.0不支持    5.0 Not Supported
+,5787+(m-1)*60,主继电器状态,Main relay status,uint16,,0：open；1：close,5.0不支持    5.0 Not Supported
+,5788+(m-1)*60,预充继电器状态,Precharged relay status,uint16,,0：open；1：close,5.0不支持    5.0 Not Supported
+,5789+(m-1)*60,负极继电器状态,Negative relay status,uint16,,0：open；1：close,5.0不支持    5.0 Not Supported
+,5790+(m-1)*60,塑壳断路器状态,Molded case circuit breaker status,int16,,0：open；1：close,5.0不支持    5.0 Not Supported
+,5791+(m-1)*60,簇故障信息1,bmu_fault1,uint32,,,5.0不支持    5.0 Not Supported
+,5792+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5793+(m-1)*60,簇故障信息2,bmu_fault2,uint32,,,5.0不支持    5.0 Not Supported
+,5794+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5795+(m-1)*60,簇故障信息3,bmu_fault3,uint32,,,5.0不支持    5.0 Not Supported
+,5796+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5797+(m-1)*60,簇故障信息4,bmu_fault4,uint32,,,5.0不支持    5.0 Not Supported
+,5798+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5799+(m-1)*60,簇故障信息5（I/II/III级报警）,bmu_fault5,uint32,,,5.0不支持    5.0 Not Supported
+,5800+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5801+(m-1)*60,簇故障信息6（I/II/III级报警）,bmu_fault5,uint32,,,5.0不支持    5.0 Not Supported
+,5802+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5803+(m-1)*60,簇故障信息7（I/II/III级报警）,bmu_fault5,uint32,,,5.0不支持    5.0 Not Supported
+,5804+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5805+(m-1)*60,簇故障信息8（I/II/III级报警）,bmu_fault5,uint32,,,5.0不支持    5.0 Not Supported
+,5806+(m-1)*60,,,,,,5.0不支持    5.0 Not Supported
+,5807+(m-1)*60,通讯状态,communication status,uint16,,1:normal 0:lost,5.0不支持    5.0 Not Supported
+,5808~5829+(m-1)*60,预留,Reserved,,,,5.0不支持    5.0 Not Supported

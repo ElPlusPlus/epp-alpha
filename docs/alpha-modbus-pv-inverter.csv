@@ -1,0 +1,24 @@
+Device,寄存器地址（十进制）,测点名称,Register name,Data type,Unit,Note
+"PV Inverter_n
+第n号光伏逆变器
+( n∈[1,32] )",1300+(n-1)*40,有功调节量,Active regulator,uint16,%,0%-100%
+,1301+(n-1)*40,预留,Reserved,,,
+,1302+(n-1)*40,A相电压,A Phase voltage,uint16,0.1V ,
+,1303+(n-1)*40,B相电压,B Phase voltage,uint16,0.1V ,
+,1304+(n-1)*40,C相电压,C Phase voltage,uint16,0.1V ,
+,1305+(n-1)*40,频率,Frequency,uint16,0.01Hz,
+,1306+(n-1)*40,预留,Reserved,,,
+,1307+(n-1)*40,预留,Reserved,,,
+,1308+(n-1)*40,当天发电量,Feed Engery to grid in today,int16,0.1kWh,
+,1309+(n-1)*40,有功功率,Feeding power,int16,0.1kW,
+,1310+(n-1)*40,工作模式,Work Mode,int16,,
+,1311+(n-1)*40,逆变器内部温度,Inverter internal temperature,int16,0.1℃ ,
+,1312+(n-1)*40,总发电量,Total Feed Energy to grid,uint32,0.1kWh,
+,1313+(n-1)*40,,,,,
+,1314+(n-1)*40,故障信息1,Fault information1,uint32,,
+,1315+(n-1)*40,,,,,
+,1316+(n-1)*40,故障信息2,Fault information2,uint32,,
+,1317+(n-1)*40,,,,,
+,1318+(n-1)*40,通讯状态,communication status,int16,,1:normal 0:lost
+,1319+(n-1)*40,实际通信状态,real communication status,int16,,1:normal 0:lost
+,1320~1339+(n-1)*40,预留,Reserved,,,
