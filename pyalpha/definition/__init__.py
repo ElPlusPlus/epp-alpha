@@ -130,4 +130,13 @@ modbus_map = {
     pv_inverter_fault2_n: pv_inverter_fault2,
     pv_inverter_comm_status_n: pv_inverter_comm_status,
     pv_inverter_real_comm_status_n: pv_inverter_real_comm_status,
+
+    # Control Registers
+    ctrl_active_power_setpoint_n: ctrl_active_power_setpoint,
+    ctrl_reactive_power_setpoint_n: ctrl_reactive_power_setpoint,
+    ctrl_dispatch_timeout_n: ctrl_dispatch_timeout,
+    ctrl_dispatch_interrupt_mode_n: ctrl_dispatch_interrupt_mode,
+    ctrl_on_off_command_n: ctrl_on_off_command,
+    ctrl_fault_clearance_n: ctrl_fault_clearance,
+    ctrl_ems_mode_n: ctrl_ems_mode,
 }

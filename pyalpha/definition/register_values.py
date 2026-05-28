@@ -1,4 +1,4 @@
-from pyalpha.definition.models import ModbusRegister, ModbusType, ModbusUnit
+from pyalpha.definition.models import ModbusRegister, ModbusType, ModbusUnit, ModbusAccess
 
 device_sn = ModbusRegister(10000, 8, 3, ModbusType.STRING, ModbusUnit.NONE, gain=1)
 
@@ -127,3 +127,12 @@ pv_inverter_fault1 = ModbusRegister(1314, 2, 3, ModbusType.U32, ModbusUnit.NONE)
 pv_inverter_fault2 = ModbusRegister(1316, 2, 3, ModbusType.U32, ModbusUnit.NONE)
 pv_inverter_comm_status = ModbusRegister(1318, 1, 3, ModbusType.S16, ModbusUnit.NONE)
 pv_inverter_real_comm_status = ModbusRegister(1319, 1, 3, ModbusType.S16, ModbusUnit.NONE)
+
+# Control Registers (4000-4199)
+ctrl_active_power_setpoint = ModbusRegister(4000, 2, 3, ModbusType.S32, ModbusUnit.KW, gain=0.1, access=ModbusAccess.RW)
+ctrl_reactive_power_setpoint = ModbusRegister(4002, 2, 3, ModbusType.S32, ModbusUnit.KVAR, gain=0.1, access=ModbusAccess.RW)
+ctrl_dispatch_timeout = ModbusRegister(4004, 1, 3, ModbusType.U16, ModbusUnit.SECOND, access=ModbusAccess.RW)
+ctrl_dispatch_interrupt_mode = ModbusRegister(4005, 1, 3, ModbusType.U16, ModbusUnit.NONE, access=ModbusAccess.RW)
+ctrl_on_off_command = ModbusRegister(4150, 1, 3, ModbusType.U16, ModbusUnit.NONE, access=ModbusAccess.RW)
+ctrl_fault_clearance = ModbusRegister(4151, 1, 3, ModbusType.U16, ModbusUnit.NONE, access=ModbusAccess.RW)
+ctrl_ems_mode = ModbusRegister(4152, 1, 3, ModbusType.U16, ModbusUnit.NONE, access=ModbusAccess.RW)

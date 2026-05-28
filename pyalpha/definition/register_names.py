@@ -126,3 +126,12 @@ pv_inverter_fault1_n = "PVInverterFault1"
 pv_inverter_fault2_n = "PVInverterFault2"
 pv_inverter_comm_status_n = "PVInverterCommStatus"
 pv_inverter_real_comm_status_n = "PVInverterRealCommStatus"
+
+# Control Registers (4000-4199)
+ctrl_active_power_setpoint_n = "CtrlActivePowerSetpoint"
+ctrl_reactive_power_setpoint_n = "CtrlReactivePowerSetpoint"
+ctrl_dispatch_timeout_n = "CtrlDispatchTimeout"
+ctrl_dispatch_interrupt_mode_n = "CtrlDispatchInterruptMode"
+ctrl_on_off_command_n = "CtrlOnOffCommand"
+ctrl_fault_clearance_n = "CtrlFaultClearance"
+ctrl_ems_mode_n = "CtrlEMSMode"
