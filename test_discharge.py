@@ -17,6 +17,11 @@ async def main():
 
     # Poll every 10 seconds for 60 seconds
     poll_registers = [
+        system_mode_n,
+        ctrl_ems_mode_n,
+        ctrl_on_off_command_n,
+        ctrl_dispatch_timeout_n,
+        ctrl_active_power_setpoint_n,
         system_soc_n,
         system_active_power_n,
         total_battery_power_n,
