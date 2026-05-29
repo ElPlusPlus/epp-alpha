@@ -1,0 +1,36 @@
+Device,寄存器地址需+(n-1)*2400（十进制）,测点名称,Register name,Data type,Unit,Note,
+"DCDC[n][m]_summary
+第n号从机的第m号DCDC的汇总数据
+( n∈[1,25] ，m∈[1,5]）",5170+(m-1)*90,启停状态,start-stop state,uint16,,"0：mode off 
+1：mode on",5.0不支持    5.0 Not Supported
+,5171+(m-1)*90,故障状态,fault state,uint16,,"0：normal 
+1：fault 
+2：warning",5.0不支持    5.0 Not Supported
+,5172+(m-1)*90,BUS侧（电池）: 功率,BUS side: power,int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5173+(m-1)*90,BUS侧: 电压,BUS side: voltage,uint16,0.1V,0~1000.0,5.0不支持    5.0 Not Supported
+,5174+(m-1)*90,BUS侧: 电流,BUS side: current,int16,0.1A,‐2000.0~2000.0,5.0不支持    5.0 Not Supported
+,5175+(m-1)*90,BUS侧: 总充电电量,BUS side: Accumulative charged energy,uint32,0.1kWh,0~2^32,5.0不支持    5.0 Not Supported
+,5176+(m-1)*90,,,,,,5.0不支持    5.0 Not Supported
+,5177+(m-1)*90,BUS侧: 总放电电量,BUS side: Accumulative discharged energy,uint32,0.1kWh,0~2^32,5.0不支持    5.0 Not Supported
+,5178+(m-1)*90,,,,,,5.0不支持    5.0 Not Supported
+,5179+(m-1)*90,DC侧（PV侧）:功率,DC side: power,int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5180+(m-1)*90,DC侧:电压,DC side: voltage,uint16,0.1V,0~1000.0,5.0不支持    5.0 Not Supported
+,5181+(m-1)*90,DC侧:电流,DC side: current,int16,0.1A,‐2000.0~2000.0,5.0不支持    5.0 Not Supported
+,5182+(m-1)*90,DC侧: 总放电电量,DC side:  Accumulative discharged energy,uint32,0.1kWh,0~2^32,5.0不支持    5.0 Not Supported
+,5183+(m-1)*90,,,,,,5.0不支持    5.0 Not Supported
+,5184+(m-1)*90,模块温度,Module temperature,int16,0.1℃ ,40.0~120.0,5.0不支持    5.0 Not Supported
+,5185+(m-1)*90,环境温度,Ambient temperature,int16,0.1℃ ,‐20.0~80.0,5.0不支持    5.0 Not Supported
+,5186+(m-1)*90,通讯状态,communication status,int16,,1:normal 0:lost,5.0不支持    5.0 Not Supported
+,5187~5199+(m-1)*90,预留,Reserved,,,,5.0不支持    5.0 Not Supported
+"DCDC[n][m]_String[N]
+第n号从机的第m号DCDC的第N个支路数据
+( n∈[1,25] ，m∈[1,5]，
+N∈[1,12]）",5200+(m-1)*90+(N-1)*5,支路${N}: 启停状态,Branch ${N}: start-stop state,uint16,,"0：mode off 
+1：mode on 
+2：sleep",5.0不支持    5.0 Not Supported
+,5201+(m-1)*90+(N-1)*5,支路${N}: 故障状态,Branch ${N}: Fault state,uint16,,"0：normal 
+1：fault 
+2：warning",5.0不支持    5.0 Not Supported
+,5202+(m-1)*90+(N-1)*5,支路${N}: 电压（BUS侧）,Branch ${N}: BUS side voltage,uint16,0.1V,0~1000.0,5.0不支持    5.0 Not Supported
+,5203+(m-1)*90+(N-1)*5,支路${N}: 功率（DC侧）,Branch ${N}: DC side power,int16,0.1kW,,5.0不支持    5.0 Not Supported
+,5204+(m-1)*90+(N-1)*5,支路${N}: 电压（DC侧）,Branch ${N}: DC side voltage,uint16,0.1V,0~1000.0,5.0不支持    5.0 Not Supported

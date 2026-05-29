@@ -264,4 +264,20 @@ modbus_map = {
     sts_fault3_n: sts_fault3,
     sts_fault4_n: sts_fault4,
     sts_comm_status_n: sts_comm_status,
+
+    # DCDC Registers (n=1, m=1)
+    dcdc_start_stop_state_n: dcdc_start_stop_state,
+    dcdc_fault_state_n: dcdc_fault_state,
+    dcdc_bus_power_n: dcdc_bus_power,
+    dcdc_bus_voltage_n: dcdc_bus_voltage,
+    dcdc_bus_current_n: dcdc_bus_current,
+    dcdc_bus_total_charge_n: dcdc_bus_total_charge,
+    dcdc_bus_total_discharge_n: dcdc_bus_total_discharge,
+    dcdc_dc_power_n: dcdc_dc_power,
+    dcdc_dc_voltage_n: dcdc_dc_voltage,
+    dcdc_dc_current_n: dcdc_dc_current,
+    dcdc_dc_total_discharge_n: dcdc_dc_total_discharge,
+    dcdc_module_temperature_n: dcdc_module_temperature,
+    dcdc_ambient_temperature_n: dcdc_ambient_temperature,
+    dcdc_comm_status_n: dcdc_comm_status,
 }

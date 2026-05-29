@@ -88,6 +88,9 @@ registers = [
     # Control setpoint
     ctrl_active_power_setpoint_n,
     ctrl_reactive_power_setpoint_n,
+    # DCDC powers
+    dcdc_bus_power_n,
+    dcdc_dc_power_n,
 ]
 
 async def main():
