@@ -22,7 +22,7 @@ async def main():
         })
 
     with open('register_dump.csv', 'w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=['name', 'address', 'function_code', 'type', 'unit', 'gain', 'value'])
+        writer = csv.DictWriter(f, fieldnames=['address', 'name', 'function_code', 'type', 'unit', 'gain', 'value'])
         writer.writeheader()
         writer.writerows(rows)
 
