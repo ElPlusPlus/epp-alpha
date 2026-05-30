@@ -1,7 +1,5 @@
 from pyalpha.definition.models import ModbusRegister, ModbusType, ModbusUnit, ModbusAccess
 
-device_sn = ModbusRegister(10000, 8, 3, ModbusType.STRING, ModbusUnit.NONE, gain=1)
-
 # Summary Registers (function code 3, addresses 0-61)
 work_mode = ModbusRegister(0, 1, 3, ModbusType.U16, ModbusUnit.NONE)
 work_status = ModbusRegister(1, 1, 3, ModbusType.U16, ModbusUnit.NONE)

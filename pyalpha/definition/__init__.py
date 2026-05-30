@@ -2,9 +2,6 @@ from pyalpha.definition.register_names import *
 from pyalpha.definition.register_values import *
 
 modbus_map = {
-    # Device Information
-    device_sn_n: device_sn,
-
     # Summary Registers
     work_mode_n: work_mode,
     work_status_n: work_status,

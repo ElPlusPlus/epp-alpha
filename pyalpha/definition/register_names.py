@@ -1,6 +1,3 @@
-# Device Information Registers (10000-10999)
-device_sn_n = "DeviceSn"
-
 # Summary Registers (0-61)
 work_mode_n = "WorkMode"
 work_status_n = "WorkStatus"
