@@ -7,10 +7,14 @@ async def main():
     await client.connect()
 
     # Switch to dispatch mode and start
+    print("ctrl_ems_mode_n")
     await client.set(ctrl_ems_mode_n, 3)
+    print("ctrl_on_off_command_n")
     await client.set(ctrl_on_off_command_n, 1)
+    print("ctrl_dispatch_timeout_n")
     await client.set(ctrl_dispatch_timeout_n, 120)
 
+    print("ctrl_active_power_setpoint_n")
     # Set discharge at 10 kW (positive = discharge)
     await client.set(ctrl_active_power_setpoint_n, 10)
     print("Discharge set to 10 kW")
