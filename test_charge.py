@@ -30,6 +30,7 @@ async def main():
         total_load_power_n,
         bams_total_voltage_n,
         bams_total_current_n,
+        bams_actual_power_n,
     ]
 
     for i in range(6):
