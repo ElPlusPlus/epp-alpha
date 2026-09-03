@@ -25,7 +25,7 @@ REPORT_FIELD_MAP = {
     "daily_energy_purchased_from_grid":(rn.grid_meter_positive_energy_n,     float),
     "daily_battery_charging_energy":   (rn.bams_total_charge_n,              float),
     "daily_battery_discharging_energy":(rn.bams_total_discharge_n,           float),
-    "daily_pv_generation":             (rn.daily_power_generation_n,         float),
+    "daily_pv_generation":             (rn.total_power_generation_n,         float),
     "charge_discharge_power":          (rn.ctrl_active_power_setpoint_n,     float),
     "state_of_charge":                 (rn.system_soc_n,                     float),
     "max_charge_power":                (rn.system_total_rated_power_n,       lambda v: float(v) * 1000),
