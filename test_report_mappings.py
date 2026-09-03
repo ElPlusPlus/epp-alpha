@@ -23,8 +23,8 @@ REPORT_FIELD_MAP = {
     "grid_power":                      (rn.grid_meter_total_active_power_n,  lambda v: float(v) * 1000),
     "daily_energy_injected_to_grid":   (rn.grid_meter_reverse_energy_n,      float),
     "daily_energy_purchased_from_grid":(rn.grid_meter_positive_energy_n,     float),
-    "daily_battery_charging_energy":   (rn.system_daily_charge_n,            float),
-    "daily_battery_discharging_energy":(rn.system_daily_discharge_n,         float),
+    "daily_battery_charging_energy":   (rn.bams_total_charge_n,              float),
+    "daily_battery_discharging_energy":(rn.bams_total_discharge_n,           float),
     "daily_pv_generation":             (rn.daily_power_generation_n,         float),
     "charge_discharge_power":          (rn.ctrl_active_power_setpoint_n,     float),
     "state_of_charge":                 (rn.system_soc_n,                     float),
@@ -48,10 +48,10 @@ REPORT_FIELD_MAP = {
 COMPUTED_FIELDS = {
     "daily_load_consumption": [
         rn.grid_meter_positive_energy_n,
-        rn.system_daily_discharge_n,
-        rn.daily_power_generation_n,
+        rn.bams_total_discharge_n,
+        rn.total_power_generation_n,
         rn.grid_meter_reverse_energy_n,
-        rn.system_daily_charge_n,
+        rn.bams_total_charge_n,
     ],
     "storage_rated_capacity": [
         rn.system_chargeable_energy_n,
@@ -112,9 +112,9 @@ async def main():
         return None if v is None else float(v)
 
     # daily_load_consumption
-    parts = [num(rn.grid_meter_positive_energy_n), num(rn.system_daily_discharge_n),
-             num(rn.daily_power_generation_n), num(rn.grid_meter_reverse_energy_n),
-             num(rn.system_daily_charge_n)]
+    parts = [num(rn.grid_meter_positive_energy_n), num(rn.bams_total_discharge_n),
+             num(rn.total_power_generation_n), num(rn.grid_meter_reverse_energy_n),
+             num(rn.bams_total_charge_n)]
     if None in parts:
         print(f"  {'daily_load_consumption':<32} {'SKIPPED':>16}")
     else:
